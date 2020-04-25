@@ -23,6 +23,8 @@ Activate venv before running this command!
 python manage.py runserver
 ```
 
+And go to http://127.0.0.1:8000/ in your browser!
+
 ### Apply database migrations
 
 Activate venv before running this command! 

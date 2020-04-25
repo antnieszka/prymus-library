@@ -1,0 +1,20 @@
+h1 {
+    color: red;
+    font-size: 400%;
+}
+
+.important {
+    color: blue;
+}
+
+#content {
+    background-color: lightgray;
+    margin-left: 300px;
+}
+
+#side-menu {
+    float: left;
+    background-color: lightgreen;
+    width: 250px;
+    height: 1000px;
+}
