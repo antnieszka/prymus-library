@@ -23,6 +23,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     # http://127.0.0.1:8000/
     path("", views.hello_world),
-    # http://127.0.0.1:8000/cwiczenie
-    path("cwiczenie", views.exercise_one),
+    # http://127.0.0.1:8000/ksiazki
+    path("ksiazki", views.book_list),
+    path("books", views.book_list),
 ]
