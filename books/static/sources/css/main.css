@@ -1,6 +1,7 @@
-h1 {
-    color: red;
-    font-size: 400%;
+#main-page-container .jumbotron {
+    padding-top: 2rem;
+    color: white;
+    background-image: url("../img/sky.jpg");
 }
 
 .important {

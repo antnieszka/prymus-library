@@ -132,3 +132,7 @@ dmypy.json
 
 .vscode/
 .idea/
+
+# ignore static files collected for deployment
+/static/
+/staticfiles/

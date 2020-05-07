@@ -4,8 +4,8 @@ from django.shortcuts import render
 from books.models import Book
 
 
-def hello_world(request):
-    return render(request, template_name="hello.html")
+def index_page(request):
+    return render(request, template_name="index.html")
 
 
 def book_list(request):

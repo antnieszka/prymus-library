@@ -22,7 +22,7 @@ urlpatterns = [
     # admin panel on http://127.0.0.1:8000/admin/
     path("admin/", admin.site.urls),
     # http://127.0.0.1:8000/
-    path("", views.hello_world),
+    path("", views.index_page),
     # http://127.0.0.1:8000/ksiazki
     path("ksiazki", views.book_list),
     path("books", views.book_list),
