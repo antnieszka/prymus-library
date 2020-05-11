@@ -1,13 +1,28 @@
 {% extends "base.html" %}
 
-{% block content %}
-    <Hr>
+{% load static %}
 
-    <ul>
-        {% for book in books %}
-            <li>Tytuł: {{ book.title }}, autor: {{ book.author }}</li>
-        {% endfor %}
-    </ul>
+{% block content %}
+
+    <div class="container mt-3">
+        <div class="row">
+
+            {% for book in books %}
+
+                <div class="card col-12 col-md-3">
+                    <img src="{% static 'sources/img/sky.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ book.title }}</h5>
+                        <p class="card-text">{{ book.short_description|truncatewords:10 }}</p>
+                        <a href="{% url 'book_details' book.id %}" class="btn btn-primary">
+                            Szczegóły <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
 
     <hr>
 {% endblock %}

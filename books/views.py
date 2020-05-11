@@ -15,3 +15,10 @@ def book_list(request):
         "books": books,
     }
     return render(request, template_name="book_list.html", context=context)
+
+
+def book_details(request, book_id):
+    book_from_db = Book.objects.get(id=book_id)
+    return render(
+        request, template_name="book_details.html", context={"book": book_from_db}
+    )
