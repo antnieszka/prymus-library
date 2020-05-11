@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>
+        {{ book_in_context.title }}
+        (ID: {{ book_in_context.id }})
+    </h1>
+    <h3>Autor</h3>
+    <p>{{ book_in_context.author }}</p>
+
+    <h3>Opis</h3>
+    <p>
+        {{ book_in_context.short_description }}
+    </p>
+
+{% endblock %}
