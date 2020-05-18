@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 from books.models import Book
@@ -22,3 +23,23 @@ def book_details(request, book_id):
     return render(
         request, template_name="book_details.html", context={"book": book_from_db}
     )
+
+
+def profile_view(request):
+    return render(request, template_name="registration/profile.html")
+
+
+def user_signup(request):
+    if request.method == "POST":
+        # przetwarzamy dane nowego użytkownika
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, template_name="registration/signup_complete.html")
+        else:
+            return render(request, template_name="registration/signup_form.html", context={"form": form})
+    else:
+        # wyświetlamy czysty formularz
+        form = UserCreationForm()
+
+    return render(request, template_name="registration/signup_form.html", context={"form": form})

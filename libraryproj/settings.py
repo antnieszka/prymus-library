@@ -51,6 +51,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# LOGIN_REDIRECT_URL = "index"
+
 ROOT_URLCONF = 'libraryproj.urls'
 
 TEMPLATES = [
