@@ -1,9 +1,13 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from books import views
 
 urlpatterns = [
+    path("accounts/", include('django.contrib.auth.urls')),
+    path("accounts/profile/", views.user_profile, name="user_profile"),
+    path("accounts/signup/", views.user_signup, name="user_signup"),
+
     # admin panel on http://127.0.0.1:8000/admin/
     path("admin/", admin.site.urls),
     # http://127.0.0.1:8000/

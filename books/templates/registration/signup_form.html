@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% if form.errors %}
+        <h1>Błędy!!!</h1>
+        {{ form.errors }}
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+
+        {{ form }}
+
+        <hr>
+        <button class="btn btn-primary">Zarejestruj się</button>
+    </form>
+
+{% endblock %}
