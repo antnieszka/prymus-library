@@ -16,6 +16,9 @@
                 <a class="nav-link" href="{% url 'book_list' %}">Lista książek</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="{% url 'author_list' %}">Lista autorów</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link disabled" href="#">Blog</a>
             </li>
             <li class="nav-item dropdown">
@@ -33,7 +36,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">{{ user }}</a>
                 </li>
-                 <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" href="{% url 'logout' %}">Wyloguj się</a>
                 </li>
             {% else %}

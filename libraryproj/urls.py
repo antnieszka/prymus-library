@@ -1,5 +1,7 @@
+from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
 
 from books import views
 
@@ -17,6 +19,12 @@ urlpatterns = [
     path("ksiazki", views.book_list, name="book_list"),
     path("books", views.book_list),
 
+    path("autorzy", views.AuthorList.as_view(), name="author_list"),
+    path("autorzy/<int:pk>", views.AuthorDetail.as_view(), name="author_detail"),
+
+    path("recenzje", views.ReviewList.as_view(), name="review_list"),
+
+
     # http://127.0.0.1:8000/ksiazki/314
     path("ksiazki/<int:book_id>", views.book_details, name="book_details"),
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

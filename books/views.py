@@ -1,8 +1,11 @@
+from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
-from books.models import Book
+from django.views.generic import View, ListView, CreateView, DetailView
+
+from books.models import Book, Author, Review
 
 
 def index_page(request):
@@ -43,3 +46,30 @@ def user_signup(request):
 
     return render(request, template_name="registration/signup_form.html", context={"form": form})
 
+
+class UserSignup(CreateView):
+    model = User
+    form_class = UserCreationForm
+    template_name = "registration/signup_form.html"
+
+
+from django.views.generic import ListView, DetailView
+from books.models import Book, Author, Review
+
+
+class AuthorList(ListView):
+    model = Author
+    template_name = "books/author_list.html"
+
+
+class ReviewList(ListView):
+    model = Review
+
+
+class AuthorDetail(DetailView):
+    model = Author
+    template_name = "books/author_detail.html"
+
+
+class ReviewDetail(DetailView):
+    model = Review

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Widok szczegółów autora: {{ author.first_name }} {{ author.last_name }}</h1>
+
+    <img src="{{ author.photo.url }}">
+
+    O autorze: {{ author.about|default_if_none:"Brak danych" }}
+{% endblock %}
