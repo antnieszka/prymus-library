@@ -3,8 +3,12 @@
 {% block content %}
     <h1>Nasi autorzy</h1>
 
-    {% for author in author_list %}
-        {{ author }}<br>
-    {% endfor %}
+    <div class="container mt-3">
+
+        {% for author in author_list %}
+            {{ author }}<br>
+        {% endfor %}
+
+    </div>
 
 {% endblock %}

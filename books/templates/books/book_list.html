@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    <div class="row">
+
+        {% for book in books %}
+
+            {% include "componenets/book_tile.html" %}
+
+        {% endfor %}
+    </div>
+
+{% endblock %}

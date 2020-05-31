@@ -23,8 +23,9 @@ urlpatterns = [
     path("autorzy/<int:pk>", views.AuthorDetail.as_view(), name="author_detail"),
 
     path("recenzje", views.ReviewList.as_view(), name="review_list"),
+    path("recenzje/<int:pk>", views.ReviewDetail.as_view(), name="review_detail"),
 
 
     # http://127.0.0.1:8000/ksiazki/314
     path("ksiazki/<int:book_id>", views.book_details, name="book_details"),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
