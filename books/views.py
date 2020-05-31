@@ -1,9 +1,11 @@
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.shortcuts import render
-from django.views.generic import CreateView
+from django.views.generic import CreateView, FormView
 from django.views.generic import ListView, DetailView
 
+from books.forms import SimpleForm, BookForm
 from books.models import Book, Author, Review
 
 
@@ -68,3 +70,30 @@ class AuthorDetail(DetailView):
 
 class ReviewDetail(DetailView):
     model = Review
+
+
+class SimpleFormView(FormView):
+    form_class = SimpleForm
+    template_name = "books/simple_form.html"
+
+    def form_valid(self, form):
+        name = form.cleaned_data["name"]
+        return render(
+            request=self.request,
+            template_name="books/simple_form_success.html",
+            context={"name": name}
+        )
+
+
+class BookCreate(LoginRequiredMixin, CreateView):
+    form_class = BookForm
+    template_name = "books/book_form.html"
+
+
+def search(request):
+    query = request.GET.get("q")
+    if query:
+        results = Book.objects.filter(title__icontains=query)
+    else:
+        results = []
+    return render(request, template_name="search_results.html", context={"results": results})

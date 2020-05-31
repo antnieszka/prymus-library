@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>Wyniki wyszukiwania</h1>
+    {% for result in results %}
+        {{ result }}<br>
+    {% empty %}
+        <div class="alert alert-info">
+            Brak wyników
+        </div>
+    {% endfor %}
+
+{% endblock %}

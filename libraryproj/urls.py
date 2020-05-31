@@ -17,6 +17,7 @@ urlpatterns = [
     # http://127.0.0.1:8000/ksiazki
     # http://127.0.0.1:8000/books
     path("ksiazki", views.book_list, name="book_list"),
+    path("ksiazki/nowa", views.BookCreate.as_view(), name="book_create"),
     path("books", views.book_list),
 
     path("autorzy", views.AuthorList.as_view(), name="author_list"),
@@ -25,6 +26,9 @@ urlpatterns = [
     path("recenzje", views.ReviewList.as_view(), name="review_list"),
     path("recenzje/<int:pk>", views.ReviewDetail.as_view(), name="review_detail"),
 
+    path("formularz", views.SimpleFormView.as_view()),
+
+    path("wyszukiwanie", views.search, name="search"),
 
     # http://127.0.0.1:8000/ksiazki/314
     path("ksiazki/<int:book_id>", views.book_details, name="book_details"),

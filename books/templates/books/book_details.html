@@ -2,16 +2,20 @@
 
 {% block content %}
 
-        <h1>
-            <i class="fa fa-book"></i>
-            {{ book.title }}
-        </h1>
+    <h1>
+        <i class="fa fa-book"></i>
+        {{ book.title }}
+    </h1>
 
-        <h2>{{ book.author }}</h2>
+    <h2>Autorzy:
+        {% for author in book.author.all %}
+            {{ author }}
+        {% endfor %}
+    </h2>
 
-        <h5>Opis:</h5>
-        <p>
-            {{ book.short_description }}
-        </p>
+    <h5>Opis:</h5>
+    <p>
+        {{ book.short_description }}
+    </p>
 
 {% endblock %}
